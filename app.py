@@ -5,6 +5,7 @@ from slack_bolt.adapter.flask import SlackRequestHandler
 from slack_bolt import App
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, request
+from functions import draft_email
 
 # Load environment variables from .env file
 load_dotenv(find_dotenv())
@@ -18,6 +19,7 @@ SLACK_BOT_USER_ID = os.environ["SLACK_BOT_USER_ID"]
 app = App(token=SLACK_BOT_TOKEN)
 
 # Initialize the Flask app
+# Flask is a web application framework written in Python
 flask_app = Flask(__name__)
 handler = SlackRequestHandler(app)
 
@@ -67,7 +69,9 @@ def handle_mentions(body, say):
     mention = f"<@{SLACK_BOT_USER_ID}>"
     text = text.replace(mention, "").strip()
 
-    response = my_function(text)
+    say("Sure, I'll get right on that!")
+    # response = my_function(text)
+    response = draft_email(text)
     say(response)
 
 
