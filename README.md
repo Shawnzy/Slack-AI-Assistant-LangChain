@@ -1,5 +1,3 @@
-# data-science-project-template
-
-A template to start a data science project.
+# Slack AI Assistant Using LangChain
 
 Based on [Cookie Cutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
